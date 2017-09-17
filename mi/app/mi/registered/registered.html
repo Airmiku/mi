@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>小米注册页面</title>
+  <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.css">
+  <script src="../jquery.js"></script>
+  <script src="../bootstrap/dist/js/bootstrap.js"></script>
+  <style>
+    #background {
+      background: #CCCCCC;
+    }
+
+    .one {
+      max-height: 300px;
+      overflow-y: auto;
+      width: 550px;
+    }
+
+    .two {
+      width: 390px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div id="background">
+    <div class="row">
+      <div class="text-center">
+        <img src="QQ截图20170826103209.png" alt="">
+      </div>
+    </div>
+    <div class="row">
+      <div class="text-center h1">
+        注册小米帐号
+      </div>
+    </div>
+    <div class="row">
+      <div class=" col-lg-offset-3 col-lg-6">
+        <form>
+          <div class="form-group from-group-lg">
+            <div class="btn-group">
+              <button type="button" class="btn dropdown-toggle ones" style="width: 550px"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">中国
+                <span class="glyphicon glyphicon-ok-circle" style="position: absolute ;right: 10px;top: 10px;"></span>
+              </button>
+              <div class="dropdown-menu one"></div>
+            </div>
+            <div class="help-block">成功注册帐号后，国家/地区将不能被修改</div>
+            <div class="form-group from-group-lg">
+              <label for="phone">手机号码</label>
+           <!--   <div class="row">
+                <div class="col-lg-2">
+                  <div class="form-inline">
+              <span class="input-group-btn">
+        <button class="btn btn-default dropdown-toggle look" style="width: 70px" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+86</button>
+           <div class="dropdown-menu two"></div>
+       </span>
+                  </div>
+                </div>
+                <div class="col-lg-7">
+                  <input type="text" class="form-control" id="phone" placeholder="请输入11位手机号码"
+                         onblur="Confirm_pn()"></div>
+                <div class="col-lg-3">
+                  <input type="button" class="btn" value="免费获取验证码" onclick="settime(this)" id="btnmessage"
+                         disabled="disabled" style="margin-left: -10px"/></div>
+                <div style="margin-left: 115px;color: grey" id="tag">请输入您的手机号码</div>
+
+              </div>-->
+              <div class="row">
+                <div class="col-lg-8">
+                  <div class="input-group">
+                 <span class="input-group-btn">
+                  <button class="btn btn-default dropdown-toggle look" style="width: 70px" type="button"
+                          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">+86</button>
+                      <div class="dropdown-menu two"></div>
+               </span>
+                    <input type="text" id="phone" class="form-control number" style="width: 320px" placeholder="请输入手机号码"
+                           onblur="Confirm_pn()">
+                  </div>
+                </div>
+                <div class="col-lg-1">
+                  <input type="button" class="btn" value="免费获取验证码" onclick="settime(this)" id="btnmessage"
+                         disabled="disabled" style="margin-left:10px; width:150px"/>
+                </div>
+              </div>
+              <div style="margin-left: 74px;color: grey" id="tag">请输入您的手机号码</div>
+
+            </div>
+
+
+
+
+            </div>
+            <div class="form-group from-group-lg">
+              <label for="check">请输入短信验证码</label>
+              <div class="form-inline">
+                <input type="text" class="form-control" id="check" placeholder="请输入短信验证码" style="width:100%;">
+              </div>
+            </div>
+            <div class="form-group from-group-lg">
+              <label for="pw">设置您的密码</label>
+              <div class="form-inline">
+                <input type="password" class="form-control" id="pw" placeholder="设置您的登录密码" style="width:100%;">
+              </div>
+            </div>
+            <button type="button" class="btn btn-warning btn-lg btn-block" aria-describedby="helpBlock" onclick="save()"
+            >立即注册小米账户
+            </button>
+      <span id="help" class="help-block">注册帐号即表示您同意并愿意遵守<a href="用户协议.html" target="_blank">小米用户协议
+      </a>和<a href="隐私政策.html" target="_blank">隐私政策</a></span>
+            <br>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="text-center h4"><a href="#">简体</a>| <a href="#">繁体</a>|<a href="#"> English </a>|<a href="#">常见问题</a>
+  </div>
+  <div class="text-center h5">小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>
+</div>
+
+
+
+
+
+
+<!--注册成功模态框-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">注册成功</h4>
+      </div>
+      <div class="modal-body">恭喜您成功注册小米帐号，请牢记帐号和密码哟~</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" onclick="tomi()">返回小米官网</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+
+<script>
+  /*  本地存储密码和帐号信息*/
+  function save() {
+    var phonenumber = document.getElementById("phone").value;
+    var password = document.getElementById("pw").value;
+    var check = document.getElementById("check").value;
+    if (phonenumber == "") {
+      alert("手机号不可以为空");
+    }
+    else {
+      if (password == "") {
+        alert("密码不可为空");
+      }
+      else {
+        if (random == check) {
+          localStorage.phone = phonenumber;
+          localStorage.pw = password;
+          console.log(localStorage.getItem("phone"));
+          console.log(localStorage.getItem("pw"));
+          $('#myModal').modal({show: true, backdrop: 'static'});
+        }
+        else {
+          alert("短信验证码错误");
+        }
+
+      }
+    }
+  }
+
+  //验证手机////////////
+  function Confirm_pn() {
+    var user_pn = document.getElementById('phone').value;
+    var border_c = document.getElementById('phone');
+    var tag = document.getElementById('tag');
+    var btn = document.getElementById('btnmessage');
+    var reg = new RegExp(/\d{11}/);//匹配合法字符
+    if (reg.test(user_pn) && user_pn.length == 11) {
+      border_c.style.borderColor = "#00ff1a";//设置属性.style
+      tag.innerHTML = "手机号可用";
+      tag.style.color = "#00ff1a";
+      btn.disabled = false;
+
+    }
+
+    else {
+      if (user_pn.length == 0) {
+        border_c.style.borderColor = "#ff0000";
+        tag.innerHTML = "手机不可以为空";
+        tag.style.color = "red";
+        btn.disabled = true;
+      }
+      else {
+        border_c.style.borderColor = "#ff0000";
+        tag.innerHTML = "手机号格式错误";
+        tag.style.color = "red";
+        btn.disabled = true;
+      }
+    }
+    ;
+  }
+  ;
+  function tomi() {
+    window.location.href = '../mi.html'
+  }
+
+  /*短信验证部分*/
+  var random = 0;
+  $('#btnmessage').on('click', function () {
+
+    var tel = $('#phone').val();
+
+    random = (Math.round(Math.random() * 9999));
+    console.log(random.toString());
+    var param = {
+      /*    no:random.toString()*/
+      no: random.toString()
+    };
+    $.ajax({
+      url: 'http://sms.market.alicloudapi.com/singleSendSms',
+      type: 'GET',
+      dataType: 'json',
+      data: {
+        ParamString: JSON.stringify(param),
+        RecNum: tel,
+        SignName: '羽宅村',
+        TemplateCode: 'SMS_94740085'
+      },
+      headers: {
+        Authorization: 'APPCODE bf93043374ae488a85ddcb439b904d71'
+      }
+    }).done(function (data) {
+      console.log('短信发送状态', data)
+    });
+    console.log(random);
+
+
+  });
+
+  /* 按钮60秒倒计时*/
+  var countdown = 60;
+  function settime(val) {
+    if (countdown == 0) {
+      val.removeAttribute("disabled");
+      val.value = "免费获取验证码";
+      countdown = 60;
+    } else {
+      val.setAttribute("disabled", true);
+      val.value = "重新发送(" + countdown + ")";
+      countdown--;
+    }
+    setTimeout(function () {
+      settime(val)
+    }, 1000)
+  }
+  /*注册地区选择*/
+  $(function () {
+    $.getJSON('country.json', function (data) {
+      var html = '';
+      for (category in data) {
+        html += '<h4>' + category + '</h4>';
+        html += '<div class="list-group">';
+        for (var i = 0, len = data[category].length; i < len; i++) {
+          html += '<a class="list-group-item" href="#">' + data[category][i].C + '</a>'
+        }
+        html += '</div>'
+      }
+      $('.one').html(html);
+      var item = '';
+      for (category in data) {
+        item += '<h4>' + category + '</h4>';
+        item += '<div class="list-group">';
+        for (var i = 0, len = data[category].length; i < len; i++) {
+          item += '   <a class="list-group-item" href="#">';
+          item += '  <span>' + data[category][i].C + '</span>';
+          item += '  <span style="float: right">' + data[category][i].N + '</span>';
+          item += '</a>'
+        }
+        item += '</div>'
+      }
+      $('.two').html(item);
+    });
+    $('.one').on('click', 'a', function () {
+      $('.btn-group button')[0].innerText = $(this)[0].innerText;
+    });
+    $('.two').on('click', 'a', function () {
+      $('.input-group button')[0].innerText = $(this).children().eq(1)[0].innerText;
+    })
+  })
+</script>
+</body>
+</html>

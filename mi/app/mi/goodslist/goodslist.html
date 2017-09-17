@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>mi</title>
+  <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="mi.css">
+  <script src="../jquery.js"></script>
+  <script src="../bootstrap/dist/js/bootstrap.js"></script>
+  <script src="../czb-confirm.js"></script>
+  <script>
+    //    购物车鼠标经过弹出
+    $(function () {
+      $('[data-toggle=hover]').parent().on('mouseenter mouseleave',function () {
+        $(this).toggleClass('open');
+      });
+      /*$('[data-toggle=hover]').parent().hover(function () {
+       $(this).addClass('open');
+       },function () {
+       $(this).removeClass('open');
+       });*/
+    });
+    //购物车中按钮提示标签实现
+    $(function () { $("[data-toggle='tooltip']").tooltip(); });
+  </script>
+</head>
+<body>
+<!--头部广告栏区域-->
+<div class="ad-bar container-fluid"></div>
+<!--头部第一条nav-->
+<!--未登录状态-->
+<div id="navbar-unlogin">
+  <!--nav左侧区域-->
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a href="#" >小米商城</a></li>
+        <li><a href="#">MIUI</a></li>
+        <li><a href="#">米聊</a></li>
+        <li><a href="#">游戏</a></li>
+        <li><a href="#">多看阅读</a></li>
+        <li><a href="#">云服务</a></li>
+        <li><a href="#">金融</a></li>
+        <li><a href="#">米币</a></li>
+        <li><a href="#">小米商城手机版</a></li>
+        <li><a href="#">问题反馈</a></li>
+      </ul>
+      <!--    nav右侧区域    -->
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="../login/login.html">登录</a></li>
+        <li><a href="../registered/registered.html">注册</a></li>
+        <li><a href="#">消息通知</a></li>
+        <li class="dropdown">
+          <!-- 购物车内容-->
+          <a class="dropdown-toggle" href="#" data-toggle="hover">购物车</a>
+          <div class="dropdown-menu dropdown-menu-right cart" id="car2" >
+            <div class="container-fluid">
+              <div class="text-center"style="font-size: 20px;color: red">
+                请登录后查看您的购物车!
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+<!--登录状态-->
+<div id="navbar-login" style="display: none">
+  <!--nav左侧区域-->
+  <nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container">
+      <ul class="nav navbar-nav">
+        <li><a href="#" >小米商城</a></li>
+        <li><a href="#">MIUI</a></li>
+        <li><a href="#">米聊</a></li>
+        <li><a href="#">游戏</a></li>
+        <li><a href="#">多看阅读</a></li>
+        <li><a href="#">云服务</a></li>
+        <li><a href="#">金融</a></li>
+        <li><a href="#">米币</a></li>
+        <li><a href="#">小米商城手机版</a></li>
+        <li><a href="#">问题反馈</a></li>
+      </ul>
+      <!--    nav右侧区域    -->
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <!-- 购物车内容-->
+          <a class="dropdown-toggle" href="#" data-toggle="hover" id="mymi">我的小米<span class="glyphicon glyphicon-chevron-down"></span></a>
+          <div class="dropdown-menu dropdown-menu-right cart" id="my" style="width: 10px">
+            <div class="list-group" >
+              <a href="personcenter/personcenter.html"><button type="button" class="list-group-item ">个人中心</button></a>
+              <a href="#"><button type="button" class="list-group-item">晒单评价</button></a>
+              <a href="#"><button type="button" class="list-group-item">我的喜欢</button></a>
+              <a href="myaccount/myaccount.html"><button type="button" class="list-group-item">小米账户</button></a>
+              <a onclick="exit()"><button type="button" class="list-group-item">退出登录</button></a>
+            </div>
+          </div>
+
+        </li>
+        <li><a href="#">消息通知</a></li>
+        <li class="dropdown">
+          <!-- 购物车内容-->
+          <a class="dropdown-toggle" href="#" data-toggle="hover">购物车</a>
+          <div class="dropdown-menu dropdown-menu-right cart" id="car" >
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-lg-3">
+                  <img class="img-thumbnail" src="images/002.jpg" alt="">
+                </div>
+                <div class="col-lg-6">
+                  小米1 硅胶保护套 红色
+                </div>
+                <div class="col-lg-3">
+                  49元 × 1
+                  <button type="button" class="close" data-id="1"><span>&times;</span></button>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row">
+                <div class="col-lg-3">
+                  <img class="img-thumbnail" src="images/002.jpg" alt="">
+                </div>
+                <div class="col-lg-6">
+                  小米2 硅胶保护套 红色
+                </div>
+                <div class="col-lg-3">
+                  79元 × 1
+                  <button type="button" class="close" data-id="2"><span>&times;</span></button>
+                </div>
+              </div>
+              <div class="divider"></div>
+              <div class="row">
+                <div class="col-lg-3">
+                  <img class="img-thumbnail" src="images/002.jpg" alt="">
+                </div>
+                <div class="col-lg-6">
+                  小米3 硅胶保护套 红色
+                </div>
+                <div class="col-lg-3">
+                  99元 × 1
+                  <button type="button" class="close" data-id="3"><span>&times;</span></button>
+                </div>
+              </div>
+              <div class="divider"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<div id="body" class="container">
+  <!--第二条nav-->
+  <nav class="navbar navbar-default"id="nav-bar-2">
+    <!--logo标志-->
+    <div class="container">
+      <div class="navbar-header">
+        <button class="navbar-toggle  collapsed" data-toggle="collapse" data-target="#navContent" >
+
+        </button>
+        <a class="navbar-brand" href="#"id="logo">
+          <img src="pic/2.png" alt="" width="35px" >
+        </a>
+      </div>
+      <!-- 导航栏内容部分-->
+      <div id="navContent" class="navbar-collapse collapse" style="">
+        <ul class="nav navbar-nav">
+          <li><a  data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            小米手机</a></li>
+          <li><a href="#">红米</a></li>
+          <li><a href="#">平板·笔记本</a></li>
+          <li><a href="#">电视</a></li>
+          <li><a href="#">影音·盒子</a></li>
+          <li><a href="#">路由器</a></li>
+          <li><a href="#">智能硬件</a></li>
+          <li><a href="#">服务</a></li>
+          <li><a href="#">社区</a></li>
+        </ul>
+        <!--导航栏搜索框部分-->
+        <form class="navbar-form navbar-right">
+          <div class="form-group" id="bar-input">
+            <div class="input-group ">
+              <input class="form-control " type="text">
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="button" >
+                  <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- 点击小米手机弹出二级列表部分-->
+    <div class="collapse" id="collapseExample" style="position: absolute; top:60px ;z-index: 1001">
+      <div class="well">
+        <div class="row">
+          <div class="col-lg-2">
+            <img src="pic/5.png" alt="" width="175px">
+            <div class="bar2-txt">
+              <div>小米6</div>
+              <div> 2499元起</div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <img src="pic/5.png" alt="" width="175px">
+            <div class="bar2-txt">
+              <div>小米6</div>
+              <div> 2499元起</div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <img src="pic/5.png" alt="" width="175px">
+            <div class="bar2-txt">
+              <div>小米6</div>
+              <div> 2499元起</div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <img src="pic/5.png" alt="" width="175px">
+            <div class="bar2-txt">
+              <div>小米6</div>
+              <div> 2499元起</div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <img src="pic/5.png" alt="" width="175px">
+            <div class="bar2-txt">
+              <div>小米6</div>
+              <div> 2499元起</div>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <img src="pic/5.png" alt="" width="175px">
+            <div class="bar2-txt">
+              <div>小米6</div>
+              <div> 2499元起</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <ol class="breadcrumb">
+    <li><a href="../mi.html">首页</a></li>
+    <li>选购电视盒子</li>
+  </ol>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">选购电视·盒子 <span class="sr-only">(current)</span></a></li>
+          <li><a href="#">小米电视42寸</a></li>
+          <li><a href="#">小米电视50寸</a></li>
+          <li><a href="#">小米电视52寸</a></li>
+          <li><a href="#">小米电视60寸</a></li>
+          <li><a href="#">小米电视100寸</a></li>
+          <li><a href="#">小米电视100寸</a></li>
+          <li><a href="#">小米电视100寸</a></li>
+          <li><a href="#" ><span class="text-danger">查看更多</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="bg-danger text-center">
+    <br>
+    <div class="h1">
+      小尺寸高端旗舰
+    </div>
+    <div class="h3">
+      卧室里的高清电视
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="bg-primary text-center">
+    <br>
+    <div class="h1">
+      4K大屏高端旗舰
+    </div>
+    <div class="h3">
+      客厅里的4K电视
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-success text-center">
+    <br>
+    <div class="h1">
+      高端旗舰 4K剧幕影院
+    </div>
+    <div class="h3">
+      客厅里的4K超高清影院
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <div class="thumbnail">
+        <img src="pic/mitv1.jpg" alt="...">
+        <div class="caption">
+          <div class="row">
+            <div class="col-lg-9">
+              <div>
+                <div class="h2">小米电视4A 32英寸<span class="h1 text-danger">1099元</span></div>
+                <div class="h5 text-muted">64位四核处理器／人工智能系统PatchWall</div>
+              </div>
+            </div>
+            <div class="col-lg-3">
+              <br>
+              <button class="btn btn-warning">
+                立即购买
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="container">
+  <img src="pic/01.jpg" alt="" width="1141px">
+</div>
+<div class="container">
+  <div style="background-color: rgba(0,0,0,0.3);height: 200px; position: relative;top: -200px;" >
+    <div class="row">
+      <div style="color: white;" class="col-lg-offset-1 col-lg-6 h1">
+        小米之家及官方授权维修网点
+      </div>
+      <div class="col-lg-offset-2 col-lg-3">
+        <br>
+        <button class="btn btn-warning btn-lg">&nbsp;&nbsp;&nbsp;&nbsp;小米之家&nbsp;&nbsp;&nbsp;</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-offset-1 col-lg-6" style="color: white">
+        <div>
+          欢迎来小米之家解决你遇到的问题，了解最新的小米官方产品最全面的产品信息，还有很多好玩的活动等你来访。
+          你还可以前往小米授权维修网点解决售后问题，520家网点让服务随时在身边。
+        </div>
+      </div>
+      <div class="col-lg-offset-2 col-lg-3">
+        <br>
+        <button class="btn btn-warning btn-lg">官方维修网点</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--页面底部与服务承诺-->
+<div class="container-fluid" id="bottom">
+  <br>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3  biankuan">
+        <span class="glyphicon glyphicon-ok-sign text-center">预约维修服务</span>
+      </div>
+      <div class="col-lg-3  biankuan">
+        <span class="glyphicon glyphicon-map-marker text-center">7天无理由退货</span>
+      </div>
+      <div class="col-lg-3  biankuan">
+        <span class="glyphicon glyphicon-adjust text-center">15天免费换货</span>
+      </div>
+      <div class="col-lg-3">
+        <span class="glyphicon glyphicon-plus-sign text-center">满150元包邮</span>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="bottom-bar-head">帮助中心</div>
+          <ul class="bottom-bar-body">
+            <li><a href="#">账户管理</a></li>
+            <li><a href="#">购物指南</a></li>
+            <li><a href="#">订单操作</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <div class="bottom-bar-head">帮助中心</div>
+          <ul class="bottom-bar-body">
+            <li><a href="#">账户管理</a></li>
+            <li><a href="#">购物指南</a></li>
+            <li><a href="#">订单操作</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <div class="bottom-bar-head">帮助中心</div>
+          <ul class="bottom-bar-body">
+            <li><a href="#">账户管理</a></li>
+            <li><a href="#">购物指南</a></li>
+            <li><a href="#">订单操作</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <div class="bottom-bar-head">帮助中心</div>
+          <ul class="bottom-bar-body">
+            <li><a href="#">账户管理</a></li>
+            <li><a href="#">购物指南</a></li>
+            <li><a href="#">订单操作</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <div class="bottom-bar-head">帮助中心</div>
+          <ul class="bottom-bar-body">
+            <li><a href="#">账户管理</a></li>
+            <li><a href="#">购物指南</a></li>
+            <li><a href="#">订单操作</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2">
+          <div class="bottom-bar-head">帮助中心</div>
+          <ul class="bottom-bar-body">
+            <li><a href="#">账户管理</a></li>
+            <li><a href="#">购物指南</a></li>
+            <li><a href="#">订单操作</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div id="tel">400-100-5678</div>
+      <div style="font-size: 14px ;text-align: center">周一至周日 8:00-18:00
+        <br>（仅收市话费）</div>
+      <div>
+        <button type="button" class="btn btn-warning center-block">
+          <span class="glyphicon glyphicon-headphones">24小时在线客服</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <br>
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-1">
+      <img src="pic/2.png" width="70px">
+    </div>
+    <div class="col-lg-7">
+      <div>
+        <a href="#">小米商城</a>|<a href="#">MIUI</a>| <a href="#">米聊</a>| <a href="#">多看书城</a>| <a href="#">小米路由器</a>|
+        <a href="#">视频电话</a>| <a href="#">小米天猫店</a>| <a href="#">小米淘宝直营店</a>| <a href="#">小米网盟</a>|
+        <a href="#">小米移动</a>| <a href="#">隐私政策</a>| <a href="#">Select Region</a>
+      </div>
+      <div>
+        ©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号
+      </div>
+      <div>
+        违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+      </div>
+    </div>
+
+    <div class="col-lg-4">
+      <img src="pic2/1.png" width=100px><img src="pic2/2.png"><img src="pic2/3.png"><img src="pic2/4.png">
+    </div>
+  </div>
+
+</div>
+<script>
+  /*根据本地存储判断是否为登录状态*/
+  var login=localStorage.getItem("login");
+  var logined=$("#navbar-login");
+  var unlogined=$("#navbar-unlogin");
+  if(login==1){
+    logined.show();
+    unlogined.hide();
+  }
+  else {
+    logined.hide();
+    unlogined.show();
+  }
+
+  /*“我的小米”显示登录后的小米帐号*/
+  var phonenumber=localStorage.getItem("phone");
+  var mymi=document.getElementById("mymi");
+  mymi.innerHTML=phonenumber+'<span class="glyphicon glyphicon-chevron-down"></span>';
+
+
+  //  轮播左侧导航栏弹出框实现
+  $('#tanchu').popover({
+    trigger : 'hover',//鼠标以上时触发弹出提示框
+    html:true,//开启html 为true的话，data-content里就能放html代码了
+    content:'<div class="row">'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'
+    +' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    '</div>'+'<div class="row">'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'
+    +' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    '</div>'+'<div class="row">'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'
+    +' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    '</div>'+'<div class="row">'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'
+    +' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    ' <div class="col-lg-3">'+
+    '<img src="pic/6.png">'+'<span>'+'小米6'+'</span>'+'<button class="btn btn-warning">'+'选购'+'</button>'+'</div>'+
+    '</div>'+'<div class="row">'+'</div>'
+
+  });
+  var tab1 = $("#tab1");
+  var tab2 = $("#tab2");
+  var tab3 = $("#tab3");
+  var c1 = $("#c1");
+  var c2 = $("#c2");
+  var c3 = $("#c3");
+  var tab4 = $("#tab4");
+  var tab5 = $("#tab5");
+  var tab6 = $("#tab6");
+  var c4 = $("#c4");
+  var c5 = $("#c5");
+  var c6 = $("#c6");
+  //家电页面鼠标移动过去切换
+  function changeTab1() {
+    tab1.addClass('active');
+    tab2.removeClass('active');
+    tab3.removeClass('active')
+    c1.show();
+    c2.hide();
+    c3.hide();
+  }
+  function changeTab2() {
+    tab1.removeClass('active');
+    tab2.addClass('active');
+    tab3.removeClass('active')
+    c1.hide();
+    c2.show();
+    c3.hide();
+  }
+
+  function changeTab3() {
+    tab1.removeClass('active');
+    tab2.removeClass('active');
+    tab3.addClass('active');
+    c1.hide();
+    c2.hide();
+    c3.show();
+  }
+  function changeTab4() {
+    tab4.addClass('active');
+    tab5.removeClass('active');
+    tab6.removeClass('active')
+    c4.show();
+    c5.hide();
+    c6.hide();
+  }
+  function changeTab5() {
+    tab4.removeClass('active');
+    tab5.addClass('active');
+    tab6.removeClass('active')
+    c4.hide();
+    c5.show();
+    c6.hide();
+  }
+
+  function changeTab6() {
+    tab1.removeClass('active');
+    tab2.removeClass('active');
+    tab3.addClass('active');
+    c4.hide();
+    c5.hide();
+    c6.show();
+  }
+  $(function () {
+    $('#car').on('click','button',function () {
+      var $a = $(this);
+      var userId = $a.data('id');
+      /*$.czb_confirm('确认要删除这条数据吗？',userId,function (id) {
+       console.log(id);
+       console.log(userId);
+       $a.parent().parent().remove();
+       });*/
+      $.czb_confirm('确定要从购物车中删除这本商品吗？',function () {
+        //console.log(id);
+        console.log(userId);
+        $a.parent().parent().remove();
+      });
+    });
+  });
+  /*推出登录状态*/
+
+  function exit() {
+    localStorage.login = 0;
+    location.reload();
+  }
+</script>
+</body>
+</html>

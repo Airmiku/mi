@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的小米帐号</title>
+  <link rel="stylesheet" href="../bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="../jquery.js"></script>
+  <script src="../bootstrap/dist/js/bootstrap.js"></script>
+</head>
+<body>
+<div class="container">
+  <div class="row" style="position: relative;top: 105px">
+    <div class="col-lg-6"></div>
+    <div class="col-lg-6">
+    <div class="row" >
+      <div class="col-lg-6">
+        <div class="text-right h3 text-danger" id="mymi">130xxxx2020</div>
+        <div class="text-right h4"><span id="myname">freeak</span>&nbsp;<a onclick="exit()" class="h5">[退出]</a></div>
+      </div>
+      <div class="col-lg-6">
+        <img src="pic/user.jpg" alt="..." class="img-circle" width="40%">
+      </div>
+    </div>
+    </div>
+  </div>
+  <img src="pic/logo.png" alt="">
+  <ul id="myTab" class="nav nav-tabs">
+    <li class="active">
+      <a href="#home" data-toggle="tab">
+        帐号安全
+      </a>
+    </li>
+    <li><a href="#ios" data-toggle="tab">个人信息</a></li>
+    <li><a href="#jmeter" data-toggle="tab">小米服务</a></li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="home">
+      <div class="panel panel-default">
+        <!-- Default panel contents -->
+        <div class="panel-heading" style="background-color: white">
+          <div class="row">
+            <div class="col-lg-2">
+              <h3> <strong>安全等级</strong><strong style="color: red;">40</strong>分</h3>
+            </div>
+            <div class="col-lg-8">
+              <br>
+              <div class="progress" >
+                <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                  <span class="sr-only">40% Complete (danger)</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-2">
+              <br>
+              存在<span class="text-danger" style="font-size: 20px">2</span>个风险
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Table -->
+        <table class="table">
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col-lg-1">
+                  <br>
+                  <img src="pic/锁.png" alt="" width="90%">
+                </div>
+                <div class="col-lg-3">
+                  <div class="h2">帐号密码</div>
+                  <div class="text-primary">用于保护帐号信息和登录安全</div>
+                </div>
+                <div class="col-lg-offset-6 col-lg-2">
+                  <br>
+                  <button class="btn btn-lg" data-toggle="modal" data-target="#myModal">
+                    修改
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="row">
+              <div class="col-lg-1">
+                <br>
+                <img src="pic/邮箱.png" alt="" width="90%">
+              </div>
+              <div class="col-lg-4">
+                <div class="h2">安全邮箱</div>
+                <div class="text-primary">安全邮箱将可用于登录小米帐号和重置密码</div>
+              </div>
+              <div class="col-lg-offset-5 col-lg-2">
+                <br>
+                <button class="btn btn-lg">
+                  修改
+                </button>
+              </div>
+            </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col-lg-1">
+                  <br>
+                  <img src="pic/手机.png" alt="" width="90%">
+                </div>
+                <div class="col-lg-5">
+                  <div class="h2">安全手机</div>
+                  <div class="text-primary">安全手机可以用于登录小米帐号，重置密码或其他安全验证</div>
+                </div>
+                <div class="col-lg-offset-4 col-lg-2">
+                  <br>
+                  <button class="btn btn-lg">
+                    修改
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="row">
+                <div class="col-lg-1">
+                  <br>
+                  <img src="pic/密保设置.png" alt="" width="90%">
+                </div>
+                <div class="col-lg-5">
+                  <div class="h2">密保问题</div>
+                  <div class="text-primary">密保问题用于安全验证</div>
+                </div>
+                <div class="col-lg-offset-4 col-lg-2">
+                  <br>
+                  <button class="btn btn-lg">
+                    修改
+                  </button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+
+    <div class="panel ">
+      <div class="panel-heading"><h3><strong>推荐使用</strong></h3></div>
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-lg-1">
+            <br>
+            <img src="pic/安全.png" alt="" width="90%">
+          </div>
+          <div class="col-lg-5">
+            <div class="h2">小米安全令牌</div>
+            <div class="text-primary">在非信任设备上登录需要二次验证，防止他人恶意登录</div>
+          </div>
+          <div class="col-lg-offset-4 col-lg-2">
+            <br>&nbsp;
+            <button class="btn btn-lg">
+              开启
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="tab-pane fade" id="ios">
+      <div class="panel panel-default">
+        <div class="panel-body">
+         <div class="row">
+           <div class="col-lg-4">
+             <div>
+             <img src="pic/user.jpg" alt="..." class="img-circle" width="90%" class="text-center">
+             <div class="text-center"><a ><h3>修改头像</h3></a></div>
+             </div>
+           </div>
+           <div class="col-lg-8">
+             <div ><h2 style="display: inline-block">基础资料</h2><span class="glyphicon glyphicon-pencil"></span>
+               <a data-toggle="modal" data-target="#myModal2">修改</a></div>
+             <ul class="list-group">
+               <li class="list-group-item" id="tablename">姓名： 请设置名字</li>
+               <li class="list-group-item" id="tablebirthday">生日：</li>
+               <li class="list-group-item" id="tablesex">性别： 男</li>
+             </ul>
+             <div><h2>高级设置</h2></div>
+             <ul class="list-group">
+               <li class="list-group-item">银行卡 <a style="float: right">管理</a></li>
+               <li class="list-group-item">帐号地区： 中国</li>
+             </ul>
+           </div>
+         </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="jmeter">
+      <div class="panel panel-default" >
+        <div class="panel-heading" style="background-color:white"><h2>您的帐号可以登录以下服务</h2></div>
+        <div class="panel-body">
+         <div class="row">
+           <div class="col-lg-6">
+             <div class="row">
+               <dic class="col-lg-4">
+                 <img src="pic/小米logo.png" alt="" width="80%">
+               </dic>
+               <div class="col-lg-8">
+                 <br>
+                 <div><strong><h3>小米官网</h3></strong></div>
+                 <div>小米手机，红米手机，小米平板和小米电视官方正品</div>
+               </div>
+             </div>
+           </div>
+           <div class="col-lg-6">
+             <div class="row">
+               <dic class="col-lg-4">
+                 <img src="pic/小米_MIUI.png" alt="" width="80%">
+               </dic>
+               <div class="col-lg-8">
+                 <br>
+                 <div><strong><h3>小米官网MIUI</h3></strong></div>
+                 <div>发烧友必刷的Android ROM</div>
+               </div>
+             </div>
+           </div>
+         </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/云服务.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>云服务</h3></strong></div>
+                  <div>随时随地，管理你的所有设备和数据</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/货币符号.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>米币中心</h3></strong></div>
+                  <div>轻松安心充值，乐享小米服务</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/应用商店.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>应用商店</h3></strong></div>
+                  <div>发现最新最热最好玩的应用</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/主题.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>主题商店</h3></strong></div>
+                  <div>手机百变换装，从此与众不同</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/多看阅读.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>多看阅读</h3></strong></div>
+                  <div>海量畅销电子书免费试读，数百万读者阅读首选</div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/米聊.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>米聊</h3></strong></div>
+                  <div>轻松社交，米粉乐园</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <dic class="col-lg-4">
+                  <img src="pic/社区.png" alt="" width="80%">
+                </dic>
+                <div class="col-lg-8">
+                  <br>
+                  <div><strong><h3>小米社区</h3></strong></div>
+                  <div>小米手机官方论坛</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="text-center"><a href="">简体</a>| <a href="">繁体</a>| <a href="">English </a>| <a href="">常见问题 </a></div>
+    <div class="text-center">小米公司版权所有-京ICP备10046444-京公网安备11010802020134号-京ICP证110507号</div>
+  </div>
+</div>
+
+<!--修改密码模态框实现-->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">修改密码</h4>
+      </div>
+      <div class="modal-body">
+        <form role="form">
+          <div class="form-group">
+            <label for="oldpw">原始密码</label>
+            <input type="password" class="form-control" id="oldpw" placeholder="请输入原始密码">
+          <label for="newpw1">新密码</label>
+          <input type="password" class="form-control" id="newpw1" placeholder="请输入新密码">
+            <label for="newpw2">再次输入新密码</label>
+            <input type="password" class="form-control" id="newpw2" placeholder="请再次输入新密码">
+      </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-danger" onclick="check()">确认修改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<!--修改个人信息模态框-->
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabe2">个人信息修改</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="name"><strong class="text-danger">*</strong>姓名</label>
+            <input type="text" class="form-control" id="name" placeholder="请输入您的姓名">
+            <label for="box">出生日期</label>
+            <div id="box"  class="row" >
+              <div class="col-lg-4">
+                <select id="birth_year" onchange="setDays(this,birth_month,birth_day);" class="form-control">
+                  <option value="">年</option>
+                </select>
+              </div>
+                <div class="col-lg-4">
+            <select id="birth_month" onchange="setDays(birth_year,this,birth_day);"  class="form-control" >
+              <option value="">月</option></select></div>
+              <div class="col-lg-4">
+          <select id="birth_day"  class="form-control" >
+              <option value="">日</option>
+            </select>
+              </div>
+            </div>
+            <label for="sex">性别</label>
+            <select name="sex" id="sex" class="form-control">
+              <option value="男">男</option>
+              <option value="女">女</option>
+            </select>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+        <button type="button" class="btn btn-primary" onclick="changename()">提交更改</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+
+
+
+<script>
+  /*页面加载时自动读取本地存储数据并加载*/
+  var localname=localStorage.getItem("name");
+  var localyear=localStorage.getItem("year");
+  var localmonth=localStorage.getItem("month");
+  var localday=localStorage.getItem("day");
+  var localsex=localStorage.getItem("sex");
+  document.getElementById("tablename").innerText="姓名："+localname;
+  document.getElementById("tablebirthday").innerText="生日："+localyear+"年"+localmonth+"月"+localday+"日";
+  document.getElementById("tablesex").innerText="性别："+localsex;
+/*  再次打开模态框自动加载本地存储中的数据*/
+  document.getElementById("name").value=localStorage.getItem("name");
+  document.getElementById("sex").value=localStorage.getItem("sex");
+  function check() {
+    var oldpw=document.getElementById("oldpw").value;
+    var newpw1= document.getElementById("newpw1").value;
+    var newpw2=document.getElementById("newpw2").value;
+    var localpassword=localStorage.getItem("pw");
+
+  if(oldpw==localpassword){
+     if(newpw1=newpw2){
+       $('#myModal').modal('hide');
+       alert("密码修改成功");
+       localStorage.pw=newpw1;
+
+     }
+    else {
+       alert("新密码2次输入不一致")
+     }
+  }
+    else{
+    alert("原始密码输入错误");
+  }
+  /*  强制刷新页面，防止再次打开模态框不清空数据*/
+    location.reload();
+  }
+  /*“我的小米”显示登录后的小米帐号和加载姓名*/
+  var phonenumber=localStorage.getItem("phone");
+  var mymi=document.getElementById("mymi");
+  mymi.innerHTML=phonenumber;
+
+  var myname=localStorage.getItem("name");
+  var namechange=document.getElementById("myname");
+  namechange.innerHTML=myname;
+
+/*  年月日联动关联系统*/
+
+  $(document).ready(function() {
+    var i = -1;
+    // 添加年份，从1910年开始
+    for (i = 1910; i <= new Date().getFullYear(); i++) {
+      addOption(birth_year, i, i);
+      /*// 默认选中1988年
+       if (i == 1988) {
+       birth_year.options[i-1910].selected = true;
+       }*/
+    }
+    // 添加月份
+    for (i = 1; i <= 12; i++) {
+      addOption(birth_month, i, i);
+    }
+    // 添加天份，先默认31天
+    for (i = 1; i <= 31; i++) {
+      addOption(birth_day, i, i);
+    }
+
+
+
+    //$("#birth_month"). birth_year  birth_day
+  });
+
+
+  // 设置每个月份的天数
+  function setDays(year, month,day) {
+    var monthDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+    var yea = year.options[year.selectedIndex].text;
+    var mon = month.options[month.selectedIndex].text;
+    var num = monthDays[mon - 1];
+    if (mon == 2 && isLeapYear(yea)) {
+      num++;
+    }
+    for (var j = day.options.length - 1; j >=num; j--) {
+      day.remove(j);
+    }
+    for (var i = day.options.length; i <= num; i++) {
+      addOption(birth_day,i,i);
+    }
+  }
+
+  // 判断是否闰年
+  function isLeapYear(year)
+  {
+    return (year % 4 == 0 || (year % 100 == 0 && year % 400 == 0));
+  }
+
+  // 向select尾部添加option
+  function addOption(selectbox, text, value) {
+    var option = document.createElement("option");
+    option.text = text;
+    option.value = value;
+    selectbox.options.add(option);
+  }
+
+  function changename() {
+
+    var  name=document.getElementById("name").value;
+    var  year=document.getElementById("birth_year").value;
+    var  month=document.getElementById("birth_month").value;
+    var  day=document.getElementById("birth_day").value;
+    var  sex=document.getElementById("sex").value;
+    if(name==""){
+      alert("姓名不可以为空")
+    }
+    else{
+      localStorage.name=name;
+      localStorage.year=year;
+      localStorage.month=month;
+      localStorage.day=day;
+      localStorage.sex=sex;
+      location.reload();
+    }
+
+  }
+/*  点击“退出按钮后的事件”*/
+function exit() {
+  localStorage.login=0;
+  window.location.href="../login/login.html"
+}
+</script>
+
+</body>
+</html>
